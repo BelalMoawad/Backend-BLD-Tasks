@@ -17,11 +17,14 @@ import imp
 from django.contrib import admin
 from django.urls import path, include
 from courses import views
-from django.views.decorators.csrf import csrf_exempt
+
 
 urlpatterns = [
     path('', include('workcourses.urls')),
     path('admin/', admin.site.urls),
-    path('courses/', csrf_exempt(views.CourseView.as_view())),
-    path("courses/<str:id>", csrf_exempt(views.SingleCourseView.as_view()))
+    path('courses/', views.CourseView.as_view()),
+    path("courses/<str:id>", views.SingleCourseView.as_view()),
+    path('users/', views.UserView.as_view()),
+    path("users/<str:id>", views.SingleUserView.as_view()),
+    path("query/", views.UserQueriesView.as_view()),
 ]
