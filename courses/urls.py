@@ -20,11 +20,9 @@ from courses import views
 
 
 urlpatterns = [
-    path('', include('workcourses.urls')),
     path('admin/', admin.site.urls),
     path('courses/', views.CourseView.as_view()),
-    path("courses/<str:id>", views.SingleCourseView.as_view()),
-    path('users/', views.UserView.as_view()),
-    path("users/<str:id>", views.SingleUserView.as_view()),
-    path("query/", views.UserQueriesView.as_view()),
+    path("courses/<str:id>", views.SingleCourseView.as_view()), 
+    path('users/', include("users.urls")), 
+    path('', include("home.urls")),  
 ]

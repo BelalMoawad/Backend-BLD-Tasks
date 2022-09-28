@@ -1,6 +1,3 @@
-import email
-from socket import fromshare
-from unicodedata import name
 from django import forms
 from django.core.exceptions import ValidationError
 
